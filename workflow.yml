@@ -1,0 +1,113 @@
+---
+category: Productivity
+createdby: gxk
+webaddress: https://www.guxingke.com
+bundleid: com.gxk.minitask
+description: mini task management
+disabled: false
+name: minitask
+objects:
+- config:
+    script: "$1"
+    scriptargtype: 1
+    concurrently: false
+    escaping: 102
+    type: 0
+    scriptfile: ''
+  uid: script-1
+  version: 2
+  type: alfred.workflow.action.script
+- config:
+    script: ./minitask new $1
+    scriptargtype: 1
+    concurrently: false
+    escaping: 102
+    type: 0
+    scriptfile: ''
+  uid: script-2
+  version: 2
+  type: alfred.workflow.action.script
+- config:
+    subtext: ''
+    withspace: true
+    keyword: ta
+    text: ''
+    argumenttype: 0
+  uid: kw-1
+  version: 1
+  type: alfred.workflow.input.keyword
+- config:
+    argumenttrimmode: 0
+    keyword: tt
+    escaping: 102
+    scriptargtype: 1
+    queuedelayimmediatelyinitially: true
+    queuedelaymode: 0
+    argumenttype: 1
+    type: 0
+    script: ./minitask week "$1"
+    queuemode: 1
+    runningsubtext: ''
+    title: such as test
+    subtext: ''
+    scriptfile: ''
+    alfredfiltersresults: false
+    queuedelaycustom: 3
+    withspace: true
+  uid: scriptfilter-1
+  version: 2
+  type: alfred.workflow.input.scriptfilter
+- config:
+    argumenttrimmode: 0
+    keyword: tti
+    escaping: 102
+    scriptargtype: 1
+    queuedelayimmediatelyinitially: true
+    queuedelaymode: 0
+    argumenttype: 1
+    type: 0
+    script: ./minitask inbox "$1"
+    queuemode: 1
+    runningsubtext: ''
+    title: such as test
+    subtext: ''
+    scriptfile: ''
+    alfredfiltersresults: false
+    queuedelaycustom: 3
+    withspace: true
+  uid: scriptfilter-2
+  version: 2
+  type: alfred.workflow.input.scriptfilter
+readme: mini task management
+uidata:
+  script-1:
+    ypos: 50
+    xpos: 360
+  script-2:
+    ypos: 200
+    xpos: 360
+  scriptfilter-1:
+    ypos: 50
+    xpos: 100
+  scriptfilter-2:
+    ypos: 200
+    xpos: 100
+  kw-1:
+    ypos: 350
+    xpos: 100
+connections:
+  scriptfilter-1:
+  - modifiersubtext: ''
+    modifiers: 0
+    destinationuid: script-1
+    vitoclose: false
+  scriptfilter-2:
+    - modifiersubtext: ''
+      modifiers: 0
+      destinationuid: script-1
+      vitoclose: false
+  kw-1:
+    - modifiersubtext: ''
+      modifiers: 0
+      destinationuid: script-2
+      vitoclose: false
