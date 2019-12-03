@@ -163,7 +163,7 @@ public class Main {
           }
           Variables vars = new Variables();
           vars.put("name", it.name);
-          vars.put("note", it.note.replaceAll("\n", "\\\\n"));
+//          vars.put("note", it.note.replaceAll("\n", "\\\\n"));
           String st = it.priority + " " + String.join(" ", it.tags);
           Mods mods = new Mods(new Mod("./minitask shift-mig " + it.status + " " + it.id, "shift mig"));
           Item item = new Item(String.valueOf(it.id), it.name, st, "./minitask mig " + it.status + " " + it.id, icon, vars, mods);
